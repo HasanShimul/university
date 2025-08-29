@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Digital Wallet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg-left {
+            background: linear-gradient(to right, #e2b2ff, #a280ff); /* Adjusted for visual similarity */
+        }
+        .gradient-bg-right {
+            background: linear-gradient(to right, #a280ff, #e2b2ff); /* Adjusted for visual similarity */
+        }
+        .top-gradient {
+            background: linear-gradient(to right, #a0a0a0, #707070, #404040); /* Darker gray to match image */
+        }
+        .gradient-header {
+            background: linear-gradient(to right, #6b7280, #1f2937); /* Dark grey gradient */
+        }
+        .gradient-section-bar {
+            background: linear-gradient(to right, #4ade80, #10b981); /* Green gradient */
+        }
+        .gradient-main-bg {
+            background: linear-gradient(to bottom right, #a7f3d0, #14b8a6); /* Light to dark teal/green gradient */
+        }
+        .gradient-blue-btn {
+            background: linear-gradient(to right, #60a5fa, #3b82f6); /* Blue button gradient */
+        }
+        .gradient-right-panel-bg {
+            background: linear-gradient(to bottom, #4ade80, #10b981); /* Green gradient for right panel */
+        }
+        .gradient-input {
+            background: linear-gradient(to right, #d1fae5, #a7f3d0); /* Light green/teal input gradient */
+        }
+        .gradient-pay-btn {
+            background: linear-gradient(to right, #60a5fa, #3b82f6); /* Blue button gradient for Pay */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-gray-700 via-gray-600 to-green-500 ">
+    <div class="max-w-7xl mx-auto mt-8 bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="top-gradient text-white p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">ABC Digital Wallet</h1>
+            <div class="flex space-x-4">
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="profile">Profile</a>
+                <a href="#" class="px-4 py-2 bg-blue-600 rounded" id="dashboard">Dashboard</a>
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="account">Accounts</a>
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="transfer">Transfer</a>
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="payment">Payments</a>
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="history">History</a>
+                <a href="#" class="px-4 py-2 bg-red-600 rounded hover:bg-red-700 transition-colors duration-200" id="logout">Log Out</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="flex-grow p-4 md:p-8 flex justify-center items-start">
+        <div class="gradient-main-bg rounded-lg shadow-lg overflow-hidden flex flex-col lg:flex-row w-full max-w-6xl">
+
+            <div class="w-full lg:w-1/2 p-6 md:p-8 flex flex-col justify-start space-y-4">
+                <button class="gradient-blue-btn text-white px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Mobile Banking
+                </button>
+                <button class="gradient-blue-btn text-white px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Gas Bill
+                </button>
+                <button class="gradient-blue-btn text-white px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Current Bill
+                </button>
+                <button class="gradient-blue-btn text-white px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Wi-fi Bill
+                </button>
+            </div>
+
+            <div class="w-full lg:w-1/2 p-6 md:p-8 gradient-right-panel-bg text-white flex flex-col items-center justify-center">
+                <h2 class="text-xl font-semibold mb-6">Shopping Bill</h2>
+                <div class="w-full max-w-sm text-center">
+                    <label for="merchant-number" class="block text-lg font-medium mb-2">Enter Merchant Number</label>
+                    <input type="text" id="merchant-number" class="w-full p-3 rounded-md gradient-input text-gray-900 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button class="gradient-pay-btn text-white px-12 py-3 rounded-md shadow-lg text-lg font-semibold hover:opacity-90 transition duration-300">
+                        Pay
+                    </button>
+                </div>
+            </div>
+
+            <div class="w-full lg:absolute lg:bottom-4 lg:left-4 p-4 lg:p-0 flex justify-start lg:mt-0 mt-4">
+                <button class="gradient-blue-btn text-white px-8 py-3 rounded-md shadow-lg text-lg font-semibold hover:opacity-90 transition duration-300">
+                    Add Beneficiary
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const profilLink = document.getElementById('profile');
+        const logoutButton = document.getElementById('logout');
+        const dashboard = document.getElementById('dashboard');
+        const transferLink = document.getElementById('transfer');
+        const  historyLink = document.getElementById('history');
+
+        if(logoutButton){
+            logoutButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to login page or perform logout action
+                window.location.href = '../login.html'; // Adjust the URL as needed
+            });
+        }
+        if(dashboard){
+            dashboard.addEventListener('click',function(event) {
+                event.preventDefault();
+                // Redirect to dashboard page
+                window.location.href = 'userHome.html'; // Adjust the URL as needed
+            });
+        }
+        if(profilLink){
+            profilLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to profile page
+                window.location.href = 'profile.html'; // Adjust the URL as needed
+            });
+        }
+        if(logoutButton){
+            logoutButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to login page or perform logout action
+                window.location.href = 'login.html'; // Adjust the URL as needed
+            });
+        }
+        if(transferLink){
+            transferLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to transfer page
+                window.location.href = 'transfer.html'; // Adjust the URL as needed
+            });
+        }
+        if(historyLink){
+            historyLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to history page
+                window.location.href = 'history.html'; // Adjust the URL as needed
+            });
+        }
+    </script>
+</body>
+</html>

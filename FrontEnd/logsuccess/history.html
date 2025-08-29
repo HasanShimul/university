@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Digital Wallet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg-left {
+            background: linear-gradient(to right, #e2b2ff, #a280ff); /* Adjusted for visual similarity */
+        }
+        .gradient-bg-right {
+            background: linear-gradient(to right, #a280ff, #e2b2ff); /* Adjusted for visual similarity */
+        }
+        .top-gradient {
+            background: linear-gradient(to right, #a0a0a0, #707070, #404040); /* Darker gray to match image */
+        }
+        .gradient-header {
+            background: linear-gradient(to right, #6b7280, #1f2937); /* Dark grey gradient */
+        }
+        .gradient-section-bar {
+            background: linear-gradient(to right, #4ade80, #10b981); /* Green gradient */
+        }
+        .gradient-main-bg {
+            background: linear-gradient(to bottom right, #a7f3d0, #14b8a6); /* Light to dark teal/green gradient */
+        }
+        .gradient-blue-btn {
+            background: linear-gradient(to right, #60a5fa, #3b82f6); /* Blue button gradient */
+        }
+        .gradient-right-panel-bg {
+            background: linear-gradient(to bottom, #4ade80, #10b981); /* Green gradient for right panel */
+        }
+        .gradient-input {
+            background: linear-gradient(to right, #d1fae5, #a7f3d0); /* Light green/teal input gradient */
+        }
+        .gradient-pay-btn {
+            background: linear-gradient(to right, #60a5fa, #3b82f6); /* Blue button gradient for Pay */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-gray-700 via-gray-600 to-green-500 ">
+    <div class="max-w-7xl mx-auto mt-8 bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="top-gradient text-white p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">ABC Digital Wallet</h1>
+            <div class="flex space-x-4">
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="profile">Profile</a>
+                <a href="#" class="px-4 py-2 bg-blue-600 rounded">Dashboard</a>
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="account">Accounts</a>
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="transfer">Transfer</a>
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="payment">Payments</a>
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded transition-colors duration-200" id="history">History</a>
+                <a href="#" class="px-4 py-2 bg-red-600 rounded hover:bg-red-700 transition-colors duration-200" id="logout">Log Out</a>
+            </div>
+        </div>
+
+      <main>
+        <div>
+            <h1 class="text-4xl text-center">Your History Dashboard</h1>
+        </div>
+      </main>
+
+    </div>
+
+    <script>
+        const profilLink = document.getElementById('profile');
+        const logoutButton = document.getElementById('logout');
+        const paymentLink = document.getElementById('payment');
+        const transferLink = document.getElementById('transfer');
+
+        if(logoutButton){
+            logoutButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to login page or perform logout action
+                window.location.href = '../login.html'; // Adjust the URL as needed
+            });
+        }
+        if(profilLink){
+            profilLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to profile page
+                window.location.href = 'profile.html'; // Adjust the URL as needed
+            });
+        }
+        if(paymentLink){
+            paymentLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to payment page
+                window.location.href = 'payment.html'; // Adjust the URL as needed
+            });
+        }
+        if(transferLink){
+            transferLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Redirect to transfer page
+                window.location.href = 'transfer.html'; // Adjust the URL as needed
+            });
+        }
+    </script>
+</body>
+</html>

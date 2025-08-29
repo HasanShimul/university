@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <!-- Tailwind CSS CDN (Using v3 for broader browser compatibility) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .mobile-menu-hidden {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .mobile-menu-visible {
+            max-height: 500px;
+            /* Adjust as needed to accommodate all menu items */
+            transition: max-height 0.3s ease-in;
+        }
+
+        /* Hamburger icon animation */
+        .hamburger-active .top-bar {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger-active .middle-bar {
+            opacity: 0;
+        }
+
+        .hamburger-active .bottom-bar {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .top-bar,
+        .middle-bar,
+        .bottom-bar {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen bg-gradient-to-r from-gray-700 via-gray-600 to-green-500 flex flex-col justify-between">
+        <header class="bg-gray-800 p-4">
+            <div class="container mx-auto flex sm:flex-row justify-between items-center text-white">
+                <h1 class="text-xl font-bold mb-2 sm:mb-0">ABC Digital Wallet</h1>
+                <ul id="navigationMenu"
+                    class="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 mt-2 md:mt-0">
+                    <li><a href="#" class="px-3 py-2 rounded-md hover:bg-gray-700 block text-center">Home</a></li>
+                    <li><a href="#" class="px-3 py-2 rounded-md hover:bg-gray-700 block text-center">Digital
+                            Banking</a></li>
+                    <li><a href="#" class="px-3 py-2 rounded-md hover:bg-gray-700 block text-center">Notes</a></li>
+                    <li><a href="#" class="px-3 py-2 rounded-md hover:bg-gray-700 block text-center">Contact List</a>
+                    </li>
+                    <li><a href="#" class="px-3 py-2 rounded-md hover:bg-gray-700 block text-center">Add more</a></li>
+                    <li><a href="#" class="px-3 py-2 rounded-md hover:bg-gray-700 block text-center">About Us</a></li>
+                    <li><button class="bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700 w-full md:w-auto">Log
+                            in</button></li>
+                </ul>
+                <div id="hamburgerBtn" class="md:hidden cursor-pointer w-8 h-6 flex flex-col justify-between">
+                    <span class="block w-full h-1 bg-blue-500 rounded-sm top-bar"></span>
+                    <span class="block w-full h-1 bg-green-500 rounded-sm middle-bar"></span>
+                    <span class="block w-full h-1 bg-red-500 rounded-sm bottom-bar"></span>
+                </div>
+            </div>
+            <nav id="mobileMenu" class="md:hidden bg-gray-700 mt-4 mobile-menu-hidden">
+                <ul class="flex flex-col py-2">
+                    <li><a href="#" class="block px-4 py-2 text-white hover:bg-gray-600">Home</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-white hover:bg-gray-600">Digital Banking</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-white hover:bg-gray-600">Notes</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-white hover:bg-gray-600">Contact List</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-white hover:bg-gray-600">Add more</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-white hover:bg-gray-600">About us</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-white hover:bg-gray-600">Log in</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="flex-grow flex items-center justify-center p-4">
+            <div id="loginForm"
+                class="bg-gray-800 bg-opacity-100 backdrop-filter backdrop-blur-lg p-8 rounded-lg shadow-xl w-full max-w-sm text-black">
+                <div class="mb-4">
+                    <label for="username" class="text-green-500 block text-sm font-bold mb-1">User Name</label>
+                    <input type="text" id="username"
+                        class="w-full p-2 rounded-md bg-white bg-opacity-100 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your username">
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="text-green-500 block text-sm font-bold mb-1">Password</label>
+                    <input type="password" id="password"
+                        class="w-full p-2 rounded-md bg-white bg-opacity-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your password">
+                </div>
+                <div class="text-center mb-6">
+                    <a href="#" class=" text-blue-500 text-sm hover:underline" id="forgetPassword">Forget Password ?</a>
+                </div>
+                <button id="login" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 mb-4">Log
+                    in</button>
+                <p class="text-red-500 text-center text-sm">Don't Have account ? <a href="#" id="registrationLink"
+                        class="hover:underline">Registration</a>
+                </p>
+
+                <!-- Message display area -->
+                <div id="loginMessage" class="mt-4 p-3 rounded-md text-sm text-center hidden"></div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 p-4 text-white">
+            <div
+                class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-sm text-center sm:text-left">
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mb-2 sm:mb-0">
+                    <a href="#" class="hover:underline">E-mail</a>
+                    <a href="#" class="hover:underline">Help</a>
+                    <a href="#" class="hover:underline">Feedback</a>
+                </div>
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                    <span>Follow us</span>
+                    <a href="follow.html" class="hover:underline">Meta</a>
+                    <a href="#" class="hover:underline">Instgram</a>
+                    <a href="#" class="hover:underline">Youtube</a>
+                    <a href="#" class="hover:underline">Linkedin</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const loginButton = document.getElementById('login');
+        const registrationLink = document.getElementById('registrationLink');
+        const forgetPassword = document.getElementById('forgetPassword');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const loginMessageDiv = document.getElementById('loginMessage'); // Correctly defined globally
+
+        // Function to display messages
+        function displayMessage(message, isSuccess = false) {
+            loginMessageDiv.textContent = message;
+            loginMessageDiv.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
+            if (isSuccess) {
+                loginMessageDiv.classList.add('bg-green-100', 'text-green-700');
+            } else {
+                loginMessageDiv.classList.add('bg-red-100', 'text-red-700');
+            }
+            loginMessageDiv.classList.remove('hidden'); // Ensure it's visible
+        }
+
+        if (loginButton) {
+            loginButton.addEventListener('click', async function (event) {
+                event.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                loginMessageDiv.classList.add('hidden'); // Hide previous messages before new attempt
+
+                if (!username || !password) {
+                    displayMessage('Please enter both username and password.');
+                    return; // Stop execution if validation fails
+                }
+
+                try {
+                    const formData = new FormData();
+                    formData.append('userName', username);
+                    formData.append('password', password);
+
+                    // Fetch request to your PHP backend
+                    const response = await fetch('./Backend/login_process.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    // Check for HTTP errors (e.g., 404, 500)
+                    if (!response.ok) {
+                        displayMessage('Server error. Please try again later.', false);
+                        window.location.href = 'invalid.html';
+                        return;
+                    }
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        const role = result.role;
+                        const userDetails = result.userDetails;
+                        const firstName = encodeURIComponent(userDetails.firstname); 
+                        const lastName = encodeURIComponent(userDetails.lastName);
+                        const username = encodeURIComponent(userDetails.username);
+
+                        displayMessage('Login successful! Redirecting...', true);
+                        await new Promise(r => setTimeout(r, 1000));
+
+                        let redirectUrl;
+                        if (role === "admin") {
+                            redirectUrl = `adminHome.html?firstName=${firstName}&lastName=${lastName}&username=${username}`;
+                           // window.location.href = 'adminHome.html'; // Path you originally provided
+                        } else if (role === "normal") {
+                            redirectUrl = `logsuccess/userHome.html?firstName=${firstName}&lastName=${lastName}&username=${username}`;
+                            //window.location.href = 'userHome.html'; // Path you originally provided
+                        } else {
+                            // Fallback for unexpected roles, or if 'user' isn't explicitly 'logsuccess/userHome.html'
+                            window.location.href = 'invalid.html'; // General user home
+                        }
+
+                        window.location.href = redirectUrl;
+                    } else {
+                        // Login failed, display message from server (e.g., "Invalid username or password.")
+                        displayMessage(result.message || 'Invalid username or password.', false);
+                    }
+                } catch (error) {
+                    // This block catches network errors or issues with JSON parsing
+                    console.error('Login error:', error);
+                    displayMessage('An unexpected error occurred during login. Please try again.', false);
+                    await new Promise(r => setTimeout(r, 1500)); // Pause briefly to show message
+                    window.location.href = 'invalid.html'; // Redirect for unhandled technical errors
+                }
+            });
+        }
+
+        // Rest of your existing JavaScript for other buttons and hamburger menu
+        if (registrationLink) {
+            registrationLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                window.location.href = 'registration.html';
+            });
+        }
+        if (forgetPassword) {
+            forgetPassword.addEventListener('click', function (event) {
+                event.preventDefault();
+                window.location.href = 'resetpassword1.html';
+            });
+        }
+
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('mobile-menu-hidden');
+                mobileMenu.classList.toggle('mobile-menu-visible');
+                hamburgerBtn.classList.toggle('hamburger-active');
+            });
+        }
+    </script>
+</body>
+
+</html>

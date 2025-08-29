@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Digital Wallet - Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            border: 4px solid #8b5cf6; /* Purple border for the entire page, matching the image */
+        }
+        .gradient-header {
+            background: linear-gradient(to right, #6b7280, #1f2937); /* Dark grey gradient */
+        }
+        .gradient-section-bar {
+            background: linear-gradient(to right, #4ade80, #10b981); /* Green gradient */
+        }
+        .gradient-main-bg {
+            background-color: #e2e8f0; /* Light grey background for the main content area */
+        }
+        .gradient-add-btn {
+            background: linear-gradient(to right, #60a5fa, #3b82f6); /* Blue gradient for Add Note */
+        }
+        .gradient-edit-btn {
+            background: linear-gradient(to right, #4ade80, #10b981); /* Green gradient for Edit Note */
+        }
+        .gradient-textarea {
+            background: linear-gradient(to right, #a78bfa, #fbcfe8); /* Purple to pink gradient for textarea */
+        }
+        .gradient-update-btn {
+            background: linear-gradient(to right, #60a5fa, #3b82f6); /* Blue gradient for Update */
+        }
+        .gradient-delete-btn {
+            background: linear-gradient(to right, #4ade80, #10b981); /* Green gradient for Delete Note */
+        }
+        .gradient-note-item {
+            background: linear-gradient(to right, #a7f3d0, #14b8a6); /* Light green/teal gradient for note items */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <header class="gradient-header py-4 text-white text-center text-xl font-bold">
+        ABC Digital Wallet
+    </header>
+
+    <div class="gradient-section-bar py-2 text-white text-center text-lg">
+        Notes
+    </div>
+
+    <main class="flex-grow gradient-main-bg p-4 md:p-8 flex justify-center">
+        <div class="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div class="md:col-span-2 flex flex-col space-y-6">
+                <div class="flex space-x-4">
+                    <button class="gradient-add-btn text-white px-8 py-3 rounded-md shadow-md text-lg font-semibold hover:opacity-90 transition duration-300">
+                        Add Note
+                    </button>
+                    <button class="gradient-edit-btn text-white px-8 py-3 rounded-md shadow-md text-lg font-semibold hover:opacity-90 transition duration-300">
+                        Edit Note
+                    </button>
+                </div>
+
+                <div class="relative w-full">
+                    <label for="note-textarea" class="absolute -top-6 left-2 text-gray-700 text-base font-medium">Write your note here</label>
+                    <textarea id="note-textarea" rows="12" class="w-full p-4 rounded-md shadow-lg gradient-textarea text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+
+                <div class="flex space-x-4 justify-end">
+                    <button class="gradient-update-btn text-white px-8 py-3 rounded-md shadow-md text-lg font-semibold hover:opacity-90 transition duration-300">
+                        Update
+                    </button>
+                    <button class="gradient-delete-btn text-white px-8 py-3 rounded-md shadow-md text-lg font-semibold hover:opacity-90 transition duration-300">
+                        Delete Note
+                    </button>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 flex flex-col space-y-4">
+                <button class="gradient-note-item text-gray-800 px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Note 1
+                </button>
+                <button class="gradient-note-item text-gray-800 px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Note 2
+                </button>
+                <button class="gradient-note-item text-gray-800 px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Note 3
+                </button>
+                <button class="gradient-note-item text-gray-800 px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Note 4
+                </button>
+                <button class="gradient-note-item text-gray-800 px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Note 5
+                </button>
+                <button class="gradient-note-item text-gray-800 px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Note 6
+                </button>
+                <button class="gradient-note-item text-gray-800 px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Note 7
+                </button>
+                <button class="gradient-note-item text-gray-800 px-6 py-3 rounded-md shadow-md text-lg font-medium hover:opacity-90 transition duration-300">
+                    Note 8
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
